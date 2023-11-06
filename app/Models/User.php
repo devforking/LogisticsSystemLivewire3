@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role as ModelsRole;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Traits\HasPermissions;
+use App\Livewire\Roles;
+use Spatie\Permission\Models\Role;
 
 class User extends Authenticatable
 {
@@ -27,8 +32,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'profile',
+        'status'
+
     ];
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
