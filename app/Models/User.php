@@ -22,6 +22,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles; //spatie role permission package
 
     /**
      * The attributes that are mass assignable.

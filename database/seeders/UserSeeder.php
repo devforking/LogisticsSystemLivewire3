@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'profile' => 'admin',
             'status' => 'ACTIVE',
             'password' => bcrypt('admin'),
-            'image' => 'users/mapache.jpg'
+            'profile_photo_path' => 'users/mapache.jpg'
         ]);
         User::create([
             'name' => 'Kevin Mad',

@@ -40,14 +40,14 @@ class RolesAndPermissionsSeeder extends Seeder
         // create roles and assign created permissions
 
         // this can be done as separate statements
-        $role = Role::create(['name' => 'Employee']);
+        $role = Role::create(['name' => 'driver']);
         $role->givePermissionTo('edit products');
 
         // or may be done by chaining
-        $role = Role::create(['name' => 'Admin'])
+        $role = Role::create(['name' => 'maintenance'])
             ->givePermissionTo(['edit categories', 'delete categories']);
 
-        $role = Role::create(['name' => 'super-admin']);
+        $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo(Permission::all());
     }
 }
