@@ -5,11 +5,15 @@ namespace App\Livewire;
 use App\Models\Truck;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class Units extends Component
 {
     use WithPagination;
+    use WithFileUploads;
+
+
 
     public $searchengine, $drivers, $unit, $name, $selected_id;
     public $confirmingUserDeletion, $Edits, $user_id;

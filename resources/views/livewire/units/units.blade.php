@@ -36,8 +36,11 @@
 
                         <td class="w-1/3 text-left py-3 px-4">{{ $truck->unit }}</td>
                         <td class="w-1/3 text-left py-3 px-4">{{ $truck->driver->name }}</td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500">{{ $truck->image }}</a>
+
+                        <td class=""><span><img src="{{ asset('storage/' . $truck->image) }}" alt="example"
+                                    height="70" width="80" class="rounded"></span>
                         </td>
+
                         <td class="text-center">
 
 
@@ -48,7 +51,7 @@
                             </button>
 
                             <button type="button" href="javascript:void(0)"
-                                class="inline-block px-6 py-2 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
+                                class="inline-block px-6 py-2 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
                                 title="Delete" wire:click="deletingUser({{ $truck->id }})">
                                 @svg('trash', 'w-6 h-6')
                             </button>

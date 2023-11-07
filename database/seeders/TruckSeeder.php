@@ -14,32 +14,34 @@ class TruckSeeder extends Seeder
     public function run(): void
     {
         //
+
+
         Truck::create([
             'unit' => 'RE-121',
-            'image' => 'categories/CURSOS.png',
+            'image' => 'trucks/RE-121.png',
+            'user_id' => 2,
+        ]);
+        Truck::create([
+            'unit' => 'RE-123',
+            'image' => 'trucks/RE-123.png',
+            'user_id' => 3,
+        ]);
+        Truck::create([
+            'unit' => 'RE-124',
+            'image' => 'trucks/RE-124.png',
+            'user_id' => 4,
+        ]);
+
+        Truck::create([
+            'unit' => 'RE-125',
+            'image' => 'trucks/RE-125.png',
             'user_id' => 5,
 
         ]);
 
         Truck::create([
-            'unit' => 'RE-122',
-            'image' => 'categories/TENIS.png',
-            'user_id' => 2,
-        ]);
-        Truck::create([
-            'unit' => 'RE-123',
-            'image' => 'categories/CELULARES.png',
-            'user_id' => 3,
-        ]);
-        Truck::create([
-            'unit' => 'RE-124',
-            'image' => 'categories/COMPUTADORAS.png',
-            'user_id' => 4,
-        ]);
-
-        Truck::create([
             'unit' => 'RE-135',
-            'image' => 'categories/COMPUTADORAS.png',
+            'image' => 'trucks/RE-135.png',
             'user_id' => 6,
         ]);
     }
