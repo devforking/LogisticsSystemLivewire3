@@ -12,7 +12,7 @@ class Units extends Component
     use WithPagination;
 
     public $searchengine, $drivers, $unit, $name, $selected_id;
-    public $confirmingUserDeletion;
+    public $confirmingUserDeletion, $Edits, $user_id;
     public $userDeleted;
     public function mount()
     {
@@ -28,24 +28,27 @@ class Units extends Component
         $query = Truck::with('driver');
         $query = Truck::query();
 
+        $users = User::all();
+
         if ($this->searchengine) {
             $query = $query->where('unit', 'like', '%' . $this->searchengine . '%')
                 ->orWhere('user_id', 'like', '%' . $this->searchengine . '%');
         }
 
         $trucks = $query->paginate(10);
-        return view('livewire.units.units', compact('trucks'));
+        return view('livewire.units.units', compact('trucks', 'users'));
     }
 
 
     public function Edit($id)
     {
-        $record = Truck::find($id, ['unit', 'user_id']);
+        $record = Truck::findOrFail($id); // Usar findOrFail para obtener el camión o lanzar un error si no existe.
         $this->unit = $record->unit;
-        $this->name = $record->name;
+        $this->user_id = $record->user_id; // Asegúrate de que esta propiedad exista y esté definida en tu componente Livewire.
         $this->selected_id = $record->id;
-        $this->confirmingUserDeletion = true;
+        $this->Edits = true; // Esta línea abrirá el modal.
     }
+
 
 
     public function deletingUser($id)

@@ -17,8 +17,8 @@
     </form>
 
 
-    <div class="bg-white overflow-auto mt-5">
-        <table class="min-w-full bg-white">
+    <div class="bg-white overflow-auto mt-5 rounded">
+        <table class="min-w-full bg-white rounded">
             <thead class="bg-gray-800 text-white">
                 <tr>
                     <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Truck</th>
