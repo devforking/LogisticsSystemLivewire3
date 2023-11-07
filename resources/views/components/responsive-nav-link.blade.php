@@ -2,23 +2,25 @@
 
 @php
     $isActive = $active ?? false;
-    $baseClasses = 'flex items-center text-base font-medium py-4 pl-6 nav-item transition duration-150 ease-in-out';
+    $baseClasses = 'flex items-center text-base font-medium py-2 pl-3 transition duration-150 ease-in-out';
 
     // Clases para cuando el enlace está activo.
-    $activeClasses = $isActive ? 'opacity-100 border-l-4 border-indigo-400 bg-indigo-50' : 'border-transparent';
+    $activeClasses = $isActive ? 'bg-primary-700 text-white' : 'text-gray-700 dark:text-gray-400';
 
     // Clases de enfoque comunes para activo y no activo.
-    $focusClasses = 'focus:outline-none focus:text-white';
+    $focusClasses = 'focus:outline-none focus:text-white focus:bg-gray-50 dark:focus:bg-gray-700';
 
-    // Clases de hover que aplican texto blanco y negrita para ambos estados.
-    $hoverClasses = 'hover:text-white hover:font-bold';
+    // Clases de hover que aplican fondo gris y texto blanco para ambos estados.
+    $hoverClasses = ' hover:text-white  dark:hover:text-white';
 
-    // Clases de opacidad y color de texto que varían según el estado activo o no.
-    $textColorClasses = $isActive ? 'text-indigo-700 hover:bg-indigo-100 hover:border-indigo-700' : 'text-white-600 hover:bg-gray-50';
-    $opacityClasses = !$isActive ? 'opacity-75' : 'opacity-100';
+    // Clases responsivas para pantallas grandes.
+    $responsiveClasses = 'lg:bg-transparent lg:border-0 lg:hover:text-white lg:p-0';
+
+    // Clases de opacidad que varían según el estado activo o no.
+    $opacityClasses = $isActive ? 'opacity-100' : 'opacity-75';
 
     // Combinando todas las clases.
-    $classes = "{$baseClasses} {$textColorClasses} {$activeClasses} {$focusClasses} {$hoverClasses} {$opacityClasses}";
+    $classes = "{$baseClasses} {$activeClasses} {$focusClasses} {$hoverClasses} {$responsiveClasses} {$opacityClasses}";
 @endphp
 
 <a {{ $attributes->merge(['class' => $classes]) }}>

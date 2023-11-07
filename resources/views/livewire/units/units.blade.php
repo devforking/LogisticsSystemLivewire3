@@ -11,7 +11,7 @@
                 </svg>
             </div>
             <input wire:model.live='searchengine' type="search" id="default-search"
-                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block w-1/4 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search" required>
         </div>
     </form>
@@ -44,17 +44,18 @@
                         <td class="text-center">
 
 
-                            <button type="button" href="javascript:void(0)"
-                                class="inline-block px-6 py-2 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out mt-2 lg:mt-0"
-                                title="Edit" wire:click="Edit({{ $truck->id }})">
-                                @svg('pen', 'w-6 h-6')
-                            </button>
 
-                            <button type="button" href="javascript:void(0)"
-                                class="inline-block px-6 py-2 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                            <x-button
+                                class="inline-block px-3 py-1 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out mt-2 lg:mt-0"
+                                title="Edit" wire:click="Edit({{ $truck->id }})">
+                                @svg('pen', 'w-5 h-5')
+                            </x-button>
+
+                            <x-button
+                                class="inline-block px-3 py-1 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
                                 title="Delete" wire:click="deletingUser({{ $truck->id }})">
-                                @svg('trash', 'w-6 h-6')
-                            </button>
+                                @svg('trash', 'w-5 h-5')
+                            </x-button>
 
 
 
