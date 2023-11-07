@@ -15,8 +15,8 @@ class Units extends Component
 
 
 
-    public $searchengine, $drivers, $unit, $name, $selected_id;
-    public $confirmingUserDeletion, $Edits, $user_id;
+    public $searchengine, $drivers, $unit, $name, $selected_id, $image;
+    public $confirmingUserDeletion, $Edits, $user_id, $Adds;
     public $userDeleted;
     public function mount()
     {
@@ -39,7 +39,7 @@ class Units extends Component
                 ->orWhere('user_id', 'like', '%' . $this->searchengine . '%');
         }
 
-        $trucks = $query->paginate(10);
+        $trucks = $query->paginate(100);
         return view('livewire.units.units', compact('trucks', 'users'));
     }
 
@@ -53,8 +53,34 @@ class Units extends Component
         $this->Edits = true; // Esta línea abrirá el modal.
     }
 
+    public function Add()
+    {
+
+        $this->Adds = true; // Esta línea abrirá el modal.
+    }
+
+    public function create()
+    {
+        $this->validate([
+            'unit' => 'required|string|max:255', // Solo como ejemplo, ajusta según tus necesidades
+            'image' => 'nullable|image|max:2048', // Haciendo la imagen opcional
+            'user_id' => 'required',
+
+        ]);
+
+        // Verificar si la imagen está presente
+        $imagePath = $this->image
+            ? $this->image->store('trucks', 'public') // Aquí especificamos el disco 'public'
+            : null; // Si no hay imagen, asignamos null
 
 
+        Truck::create([
+            'unit' => $this->unit,
+            'image' => $imagePath,
+            'user_id' => $this->user_id,
+
+        ]);
+    }
     public function deletingUser($id)
     {
         $record = Truck::find($id, ['unit', 'user_id']);
@@ -65,7 +91,17 @@ class Units extends Component
     }
     public function deleteUser()
     {
-        $this->userDeleted = true;
+        $truck = Truck::find($this->selected_id);
+
+        if ($truck) {
+            $truck->delete();
+            $this->userDeleted = true;
+        } else {
+            // Manejar el caso de que el camión no se encuentre
+            $this->userDeleted = false;
+            session()->flash('message', 'Truck not found.'); // Ejemplo de manejo de error
+        }
+
         $this->confirmingUserDeletion = false;
     }
 }

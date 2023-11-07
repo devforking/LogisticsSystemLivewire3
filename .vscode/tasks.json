@@ -1,19 +1,19 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Run php artisan serve on startup",
-      "type": "shell",
-      "command": "php artisan serve",
-      "windows": {
-        "command": "php artisan serve"
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run php artisan serve on startup",
+        "type": "shell",
+        "command": "php artisan serve --port=8703",
+        "windows": {
+          "command": "php artisan serve --port=8703"
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        },
+        "runOptions": { "runOn": "folderOpen" }
       },
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
-      },
-      "runOptions": { "runOn": "folderOpen" }
-    },
     {
       "label": "Run npm run dev on startup",
       "type": "shell",
