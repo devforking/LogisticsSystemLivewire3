@@ -1,5 +1,4 @@
-<x-app-layout>
-    <x-slot name="header">
+<x-layouts.app> <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
         </h2>
@@ -42,4 +41,4 @@
             @endif
         </div>
     </div>
-</x-app-layout>
+</x-layouts.app>

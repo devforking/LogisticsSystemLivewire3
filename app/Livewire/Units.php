@@ -50,7 +50,38 @@ class Units extends Component
         $this->unit = $record->unit;
         $this->user_id = $record->user_id; // Asegúrate de que esta propiedad exista y esté definida en tu componente Livewire.
         $this->selected_id = $record->id;
+        $this->currentImage = $record->image;  // Imagen actual, no la sobrescribe con la nueva imagen.
+
         $this->Edits = true; // Esta línea abrirá el modal.
+    }
+
+    public function Update()
+    {
+        $this->validate([
+            'unit' => 'required|string|max:255', // Solo como ejemplo, ajusta según tus necesidades
+            'image' => 'nullable|image|max:2048', // Haciendo la imagen opcional
+            'user_id' => 'required',
+
+        ]);
+
+        if ($this->selected_id) {
+            $truck = Truck::find($this->selected_id);
+
+
+            $data = [
+                'unit' => $this->unit,
+                'user_id' => $this->user_id,
+
+            ];
+
+            if ($this->image) {
+                $data['image'] = $this->image->store('trucks');
+            }
+
+            $truck->update($data);
+
+            $this->resetUI();
+        }
     }
 
     public function Add()
@@ -83,6 +114,8 @@ class Units extends Component
         ]);
 
         $this->resetUI();
+        $this->Adds = false; // Propiedad que controla la visibilidad del modal
+
     }
     public function deletingUser($id)
     {

@@ -2,20 +2,20 @@
     <h1 class="text-3xl text-black pb-6">Dashboard</h1>
 
     <div class="flex flex-wrap mt-6">
-        <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
+        <div class="w-1/2 lg:w-1/2 pr-0 lg:pr-2">
             <p class="text-xl pb-3 flex items-center">
                 <i class="fas fa-plus mr-3"></i> Monthly Reports
             </p>
-            <div class="p-6 bg-white">
-                <canvas id="chartOne" width="400" height="200"></canvas>
+            <div class="p-4 bg-white rounded-lg">
+                <canvas id="chartOne" class="w-1/2 h-32 lg:h-48"></canvas>
             </div>
         </div>
-        <div class="w-full lg:w-1/2 pl-0 lg:pl-2 mt-12 lg:mt-0">
+        <div class="w-1/2 lg:w-1/2 pl-0 lg:pl-2 mt-4 lg:mt-0">
             <p class="text-xl pb-3 flex items-center">
                 <i class="fas fa-check mr-3"></i> Resolved Reports
             </p>
-            <div class="p-6 bg-white">
-                <canvas id="chartTwo" width="400" height="200"></canvas>
+            <div class="p-4 bg-white rounded-lg">
+                <canvas id="chartTwo" class="w-1/2 h-32 lg:h-48"></canvas>
             </div>
         </div>
     </div>
