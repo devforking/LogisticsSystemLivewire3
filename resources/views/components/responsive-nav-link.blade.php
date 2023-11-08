@@ -5,10 +5,10 @@
     $baseClasses = 'flex items-center text-base font-medium py-2 pl-3 transition duration-150 ease-in-out';
 
     // Clases para cuando el enlace está activo.
-    $activeClasses = $isActive ? 'bg-primary-700 text-white' : 'text-gray-700 dark:text-gray-300';
+    $activeClasses = $isActive ? 'bg-primary-700 text-white' : 'text-gray-400 dark:text-gray-300';
 
     // Clases de enfoque comunes para activo y no activo.
-    $focusClasses = 'focus:outline-none focus:text-white focus:bg-gray-50 dark:focus:bg-gray-700';
+    $focusClasses = 'focus:outline-none focus:text-white ';
 
     // Clases de hover que aplican fondo gris y texto blanco para ambos estados.
     $hoverClasses = ' hover:text-white  dark:hover:text-white';

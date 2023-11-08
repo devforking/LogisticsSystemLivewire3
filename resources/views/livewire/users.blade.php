@@ -16,7 +16,7 @@
                 placeholder="Search">
             <x-button wire:click='Add'
                 class="text-3xl text-right inline-block px-3 py-1 bg-green-800 text-white font-medium leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out mt-2 lg:mt-0">
-                Add Truck
+                Create User
             </x-button>
 
         </div>
@@ -27,8 +27,8 @@
         <table class="min-w-full bg-white rounded">
             <thead class="bg-gray-800 text-white">
                 <tr>
-                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Truck</th>
-                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Driver
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Role
                     </th>
                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Image</th>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Actions</th>
@@ -36,14 +36,14 @@
             </thead>
 
             <tbody class="text-gray-700">
-                @foreach ($trucks as $truck)
+                @foreach ($users as $user)
                     <tr>
 
 
-                        <td class="w-1/3 text-left py-3 px-4">{{ $truck->unit }}</td>
-                        <td class="w-1/3 text-left py-3 px-4">{{ $truck->driver->name }}</td>
+                        <td class="w-1/3 text-left py-3 px-4">{{ $user->name }}</td>
+                        <td class="w-1/3 text-left py-3 px-4">{{ $user->profile }}</td>
 
-                        <td class=""><span><img src="{{ asset('storage/' . $truck->image) }}" alt="example"
+                        <td class=""><span><img src="{{ asset('storage/' . $user->image) }}" alt="example"
                                     height="70" width="80" class="rounded"></span>
                         </td>
 
@@ -53,20 +53,19 @@
 
                             <x-button
                                 class="inline-block px-3 py-1 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out mt-2 lg:mt-0"
-                                title="Edit" wire:click="Edit({{ $truck->id }})">
+                                title="Edit" wire:click="Edit({{ $user->id }})">
                                 @svg('pen', 'w-5 h-5')
                             </x-button>
 
                             <x-button
                                 class="inline-block px-3 py-1 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
-                                title="Delete" wire:click="deletingUser({{ $truck->id }})">
+                                title="Delete" wire:click="deletingUser({{ $user->id }})">
                                 @svg('trash', 'w-5 h-5')
                             </x-button>
 
 
 
 
-                            {{-- {{ $category->image }} --}}
                         </td>
                     </tr>
                 @endforeach
@@ -74,8 +73,7 @@
 
 
         </table>
-        {{ $trucks->links() }}
 
-        @include('livewire.units.modalUnits')
+        {{--     @include('livewire.units.modalUnits') --}}
     </div>
 </div>

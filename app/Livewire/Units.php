@@ -15,7 +15,7 @@ class Units extends Component
 
 
 
-    public $searchengine, $drivers, $unit, $name, $selected_id, $image;
+    public $searchengine, $drivers, $unit, $name, $selected_id, $image, $currentImage;
     public $confirmingUserDeletion, $Edits, $user_id, $Adds;
     public $userDeleted;
     public function mount()
@@ -39,7 +39,7 @@ class Units extends Component
                 ->orWhere('user_id', 'like', '%' . $this->searchengine . '%');
         }
 
-        $trucks = $query->paginate(100);
+        $trucks = $query->paginate(10);
         return view('livewire.units.units', compact('trucks', 'users'));
     }
 
@@ -55,6 +55,7 @@ class Units extends Component
 
     public function Add()
     {
+        $this->resetUI();
 
         $this->Adds = true; // Esta línea abrirá el modal.
     }
@@ -80,6 +81,8 @@ class Units extends Component
             'user_id' => $this->user_id,
 
         ]);
+
+        $this->resetUI();
     }
     public function deletingUser($id)
     {
@@ -102,6 +105,19 @@ class Units extends Component
             session()->flash('message', 'Truck not found.'); // Ejemplo de manejo de error
         }
 
+        $this->resetUI();
+
         $this->confirmingUserDeletion = false;
+    }
+
+    public function resetUI()
+    {
+        $this->unit = '';
+        $this->name = '';
+
+        $this->user_id = '';
+        $this->image = null;
+        $this->currentImage = null; // Agregado para manejar la imagen actual en la edición.
+        $this->selected_id = 0;
     }
 }

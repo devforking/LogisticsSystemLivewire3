@@ -2,6 +2,7 @@
 
 use App\Livewire\Dashboard2;
 use App\Livewire\Units;
+use App\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('/units', Units::class)->name('units');
+
+Route::get('/users', Users::class)->name('users');
+
 
 Route::get('/dashboard', Dashboard2::class)->name('dashboard');
 
