@@ -23,6 +23,7 @@
     </div>
 
 
+
     <div class="bg-white overflow-auto mt-5 rounded">
         <table class="min-w-full bg-white rounded">
             <thead class="bg-gray-800 text-white">
@@ -73,6 +74,10 @@
 
 
         </table>
+
+
+
+
 
         {{--     @include('livewire.units.modalUnits') --}}
     </div>
