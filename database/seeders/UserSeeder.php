@@ -17,10 +17,10 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Nes GC',
             'phone' => '2333035355',
-            'email' => 'nesgc@gmail.com',
+            'email' => 'polodev10@gmail.com',
             'profile' => 'admin',
             'status' => 'ACTIVE',
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('secret2'),
             'profile_photo_path' => 'users/mapache.jpg'
         ]);
         User::create([
